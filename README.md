@@ -1,25 +1,80 @@
-# RAG Query
+# RAG Semantic Search
 
-A **Retrieval-Augmented Generation (RAG)** module for **semantic search and question answering** over vectorized documents.
+A modular **Retrieval-Augmented Generation (RAG)** system for **document ingestion, semantic search, and question answering** using vector embeddings and Large Language Models (LLMs).
 
-This project queries a vector database populated by a companion ingestion pipeline, retrieves the most relevant document chunks using semantic similarity, and generates answers using Large Language Models (LLMs).
+This repository is structured as a **monorepo** and contains two main components:
+- **rag-ingest** – document ingestion and vectorization pipeline
+- **rag-query** – semantic search and RAG-based querying over the vector database
+
+---
+
+## Architecture Overview
+
+The system follows a standard RAG architecture:
+
+1. Documents (text, PDFs, images) are ingested and processed
+2. Content is split into chunks using different chunking strategies
+3. Vector embeddings are generated and stored in a vector database
+4. User queries retrieve relevant chunks via semantic similarity
+5. An LLM generates answers using the retrieved context
+
+---
+
+## Repository Structure
+
+RAG/
+├── rag-ingest/ # Document ingestion & vectorization pipeline
+├── rag-query/ # Semantic search & RAG query engine
+├── rag-setup-docs/ # Additional documentation
+├── README.md
 
 
-## Features
-- Semantic search over documents using vector embeddings  
-- Retrieval-Augmented Generation (RAG) pipeline  
-- Command-line interface (CLI) for querying and diagnostics  
-- Modular, extensible, and production-oriented architecture  
+---
 
+## rag-ingest – Ingestion Pipeline
 
-## How It Works
-1. A user submits a query via the CLI  
-2. Relevant documents are retrieved from a vector database using similarity search  
-3. Retrieved context is injected into a prompt  
-4. An LLM generates a final response based on the retrieved information  
+Responsible for extracting content from documents, chunking it, generating embeddings, and storing them in a vector database.
 
+### Key features:
+- Multiple **chunking strategies**:
+  - Recursive chunking
+  - Semantic chunking
+  - LLM-based chunking
+  - Markdown-aware chunking
+- Support for multiple input types:
+  - Plain text
+  - PDF documents
+  - Images (OCR / vision-based extraction)
+- Modular ingestion pipeline with clear separation of responsibilities
+
+### Main components:
+- `processors/` – content extractors (PDF, text, vision)
+- `core/Chunkers/` – pluggable chunking strategies
+- `ingestion_pipeline.py` – pipeline orchestration
+- `vector_db.py` – vector database interface
+
+---
+
+## rag-query – Query & RAG Engine
+
+Provides semantic search and Retrieval-Augmented Generation over the vector database created by `rag-ingest`.
+
+### Key features:
+- Semantic similarity search over vector embeddings
+- Retrieval-Augmented Generation (RAG)
+- Command-line interface (CLI) for querying
+- Clean and extensible query architecture
+
+### Main components:
+- `query_engine.py` – orchestrates retrieval and generation
+- `generator.py` – LLM-based response generation
+- `vector_db.py` – vector database access
+- `cli.py` – command-line interface
+
+---
 
 ## Tech Stack
+
 - **Python**
 - **OpenAI API**
 - **ChromaDB** (vector database)
@@ -28,59 +83,54 @@ This project queries a vector database populated by a companion ingestion pipeli
 
 ---
 
-## Project Structure
-rag-query/
-├── src/rag_query/
-│ ├── core/
-│ │ ├── query_engine.py
-│ │ ├── retriever.py
-│ │ ├── generator.py
-│ │ └── vector_db.py
-│ └── cli.py
-├── tests/
-└── pyproject.toml
+## Setup & Installation
 
-## Installation
+Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/rag-query.git
-cd rag-query
+git clone https://github.com/your-username/rag-semantic-search.git
+cd RAG
+Each module (rag-ingest, rag-query) is self-contained and uses Pipenv for dependency management.
+
+Install dependencies separately for each module:
+
+cd rag-ingest
 pipenv install
 
-# Run a full RAG query (retrieval + generation)
-pipenv run python -m rag_query.cli query "What is the main topic of the documents?"
+cd ../rag-query
+pipenv install
 
-# Perform semantic search only (no generation)
-pipenv run python -m rag_query.cli search "machine learning"
 Environment Configuration
+Each module requires a .env file (not committed to GitHub).
+Use the provided .env.example files as a template.
 
-Create a .env file in the project root:
+Example variables:
 
-OPENAI_PROJECT_ID=project_id
 OPENAI_API_KEY=your_openai_api_key
 OPENAI_MODEL_NAME=gpt-4
 
-CHROMA_PERSIST_DIRECTORY=./vector_db
+CHROMA_PERSIST_DIRECTORY=./rag-data/vector_db
 CHROMA_COLLECTION_NAME=documents
-
-MAX_RETRIEVED_DOCS=5
-SIMILARITY_THRESHOLD=0.7
-
-Usage
-
-# Run a full RAG query
-rag-query query "What is the main topic of the documents?"
-
-# Perform similarity search only
-rag-query search "machine learning"
-
-# Check system status
-rag-query status
-
-Integration
-
-This module is designed to work with a separate RAG ingestion pipeline, sharing the same vector database persistence directory and collection.
+Usaage
+Run ingestion (rag-ingest)
+pipenv run python -m rag_ingest
+Run queries (rag-query)
+pipenv run python -m rag_query.cli query "What is the main topic of the documents?"
+pipenv run python -m rag_query.cli search "machine learning"
 
 Notes
+The rag-data directory (vector database and local data) is intentionally excluded from version control.
 
-This project focuses on clean architecture, separation of concerns, and best practices for building RAG systems suitable for real-world applications.
+This project focuses on clean architecture, modularity, and best practices for building scalable RAG systems.
+
+Designed as a learning and portfolio project with production-oriented structure.
+
+Use Cases
+Semantic document search
+
+Question answering over internal knowledge bases
+
+RAG-based AI assistants
+
+Experimentation with chunking and retrieval strategies
+
