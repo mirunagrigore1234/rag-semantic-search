@@ -100,7 +100,7 @@ pipenv install
 cd ../rag-query
 pipenv install
 
-Environment Configuration
+## Eninronment configuration
 Each module requires a .env file (not committed to GitHub).
 Use the provided .env.example files as a template.
 
