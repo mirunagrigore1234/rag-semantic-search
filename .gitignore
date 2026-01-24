@@ -1,0 +1,24 @@
+# secrets
+.env
+*.env
+
+# local data (DO NOT COMMIT)
+rag-data/
+rag_data/
+vector_db/
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# virtual envs
+.venv/
+venv/
+ENV/
+
+# editor / OS
+.vscode/
+.DS_Store

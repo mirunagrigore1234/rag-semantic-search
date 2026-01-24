@@ -1,0 +1,24 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+ruff = "*"
+mypy = "*"
+pytest = "*"
+pytest-asyncio = "*"
+
+[packages]
+chromadb = "*"
+openai = "*"
+pydantic = "*"
+python-dotenv = "*"
+llama-index = "*"
+pydantic-settings = "*"
+llama-index-vector-stores-chroma = "*"
+sentence-transformers = "*"
+rag-query = {file = ".", editable = true}
+
+[requires]
+python_version = "3.13.5"

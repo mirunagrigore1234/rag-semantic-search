@@ -1,0 +1,32 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+ruff = "*"
+pytest = "*"
+pytest-asyncio = "*"
+pytest-cov = "*"
+pylint = "*"
+mypy = "*"
+
+[packages]
+python-dotenv = "*"
+pydantic = "*"
+chromadb = "*"
+pillow = "*"
+click = "*"
+pdfplumber = "*"
+pymupdf = "*"
+rag-ingest = {file = ".", editable = true}
+llama-index = "*"
+pydantic-settings = "*"
+l = "*"
+langchain = "*"
+openai = "*"
+langchain-text-splitters = "*"
+langchain-openai = "*"
+
+[requires]
+python_version = "3.13"

@@ -1,0 +1,42 @@
+{
+  "folders": [
+    {
+      "name": "rag-setup-docs",
+      "path": "./rag-setup-docs"
+    },
+    {
+      "name": "rag-ingest",
+      "path": "./rag-ingest"
+    },
+    {
+      "name": "rag-query", 
+      "path": "./rag-query"
+    }
+  ],
+  "settings": {
+    "python.defaultInterpreterPath": "./.venv/bin/python",
+    "[python]": {
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "charliermarsh.ruff",
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit",
+        "source.fixAll": "explicit"
+      }
+    },
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/*.pyc": true,
+      ".pytest_cache": true,
+      ".coverage": true,
+      "htmlcov": true,
+      ".mypy_cache": true
+    },
+    "python.testing.pytestEnabled": true
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-python.python",
+      "charliermarsh.ruff"
+    ]
+  }
+}
