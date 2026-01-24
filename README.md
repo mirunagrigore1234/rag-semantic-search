@@ -115,7 +115,7 @@ Run queries (rag-query)
 pipenv run python -m rag_query.cli query "What is the main topic of the documents?"
 pipenv run python -m rag_query.cli search "machine learning"
 
-Notes
+## Notes
 The rag-data directory (vector database and local data) is intentionally excluded from version control.
 
 This project focuses on clean architecture, modularity, and best practices for building scalable RAG systems.
@@ -124,7 +124,7 @@ Designed as a learning and portfolio project with production-oriented structure.
 
 This project was developed as part of an internship and is intended for learning and experimentation purposes.
 
-Use Cases
+## Use Cases
 Semantic document search
 
 Question answering over internal knowledge bases
