@@ -85,9 +85,6 @@ Provides semantic search and Retrieval-Augmented Generation over the vector data
 
 ## Setup & Installation
 
-Clone the repository:
-
-```bash
 git clone https://github.com/your-username/rag-semantic-search.git
 cd RAG
 Each module (rag-ingest, rag-query) is self-contained and uses Pipenv for dependency management.
@@ -98,7 +95,7 @@ cd rag-ingest
 pipenv install
 
 cd ../rag-query
-pipenv install```
+pipenv install`
 
 ## Eninronment configuration
 Each module requires a .env file (not committed to GitHub).
