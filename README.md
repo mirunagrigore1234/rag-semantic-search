@@ -98,7 +98,7 @@ cd rag-ingest
 pipenv install
 
 cd ../rag-query
-pipenv install
+pipenv install```
 
 ## Eninronment configuration
 Each module requires a .env file (not committed to GitHub).
@@ -124,6 +124,8 @@ The rag-data directory (vector database and local data) is intentionally exclude
 This project focuses on clean architecture, modularity, and best practices for building scalable RAG systems.
 
 Designed as a learning and portfolio project with production-oriented structure.
+
+This project was developed as part of an internship and is intended for learning and experimentation purposes.
 
 Use Cases
 Semantic document search
