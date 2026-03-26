@@ -33,8 +33,6 @@ The system follows a standard RAG architecture:
 
 ## Repository Structure
 
----
-```md
 ```text
 RAG/
 ├── rag-ingest/        # Document ingestion & vectorization pipeline
@@ -95,9 +93,11 @@ Provides semantic search and Retrieval-Augmented Generation over the vector data
 - **Click** (CLI framework)
 
 ---
+## Setup
 
+```md
 ## Setup & Installation
----
+
 ```bash
 git clone https://github.com/your-username/rag-semantic-search.git
 cd RAG
@@ -124,15 +124,20 @@ OPENAI_MODEL_NAME=gpt-4
 CHROMA_PERSIST_DIRECTORY=./rag-data/vector_db
 CHROMA_COLLECTION_NAME=documents
 
+
 ## Usage
+
+```md
+## Usage
+
 ### Run ingestion (rag-ingest)
----
+
 ```bash
 pipenv run python -m rag_ingest
 ---
 
 ### Run queries (rag-query)
----
+
 ```bash
 pipenv run python -m rag_query.cli query "What is the main topic of the documents?"
 pipenv run python -m rag_query.cli search "machine learning"
