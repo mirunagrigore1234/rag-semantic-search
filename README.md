@@ -10,7 +10,7 @@ This repository is structured as a **monorepo** and contains two main components
 
 ## Architecture Overview
 
-[!Landing](Arhitecture_overview.png)
+![Landing](Arhitecture_overview.png)
 
 The system follows a standard RAG architecture:
 
