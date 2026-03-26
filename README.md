@@ -158,6 +158,5 @@ RAG-based AI assistants
 - Evaluation metrics for retrieval quality
 - Support for hybrid search (keyword + vector)
 - Web interface for querying
-
 Experimentation with chunking and retrieval strategies
 
