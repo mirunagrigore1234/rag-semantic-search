@@ -10,6 +10,8 @@ This repository is structured as a **monorepo** and contains two main components
 
 ## Architecture Overview
 
+[!Landing](Arhitecture_overview.png)
+
 The system follows a standard RAG architecture:
 
 1. Documents (text, PDFs, images) are ingested and processed
