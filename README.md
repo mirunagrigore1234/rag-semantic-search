@@ -102,11 +102,15 @@ Each module (rag-ingest, rag-query) is self-contained and uses Pipenv for depend
 
 Install dependencies separately for each module:
 
+```bash
 cd rag-ingest
 pipenv install
+```
 
+```bash
 cd ../rag-query
 pipenv install
+```
 
 ## Environment configuration
 Each module requires a .env file (not committed to GitHub).
