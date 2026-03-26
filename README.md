@@ -39,8 +39,7 @@ RAG/
 ├── rag-query/         # Semantic search & RAG query engine
 ├── rag-setup-docs/    # Additional documentation
 ├── README.md
-
----
+```
 
 ## rag-ingest – Ingestion Pipeline
 
@@ -101,7 +100,7 @@ Provides semantic search and Retrieval-Augmented Generation over the vector data
 ```bash
 git clone https://github.com/your-username/rag-semantic-search.git
 cd RAG
----
+```
 Each module (rag-ingest, rag-query) is self-contained and uses Pipenv for dependency management.
 
 Install dependencies separately for each module:
@@ -111,7 +110,7 @@ pipenv install
 
 cd ../rag-query
 pipenv install
-
+```
 ## Environment configuration
 Each module requires a .env file (not committed to GitHub).
 Use the provided .env.example files as a template.
@@ -134,14 +133,15 @@ CHROMA_COLLECTION_NAME=documents
 
 ```bash
 pipenv run python -m rag_ingest
----
+```
 
 ### Run queries (rag-query)
 
 ```bash
 pipenv run python -m rag_query.cli query "What is the main topic of the documents?"
 pipenv run python -m rag_query.cli search "machine learning"
----
+```
+```
 ## Notes
 Running queries requires a valid OpenAI API key. 
 
