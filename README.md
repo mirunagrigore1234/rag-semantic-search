@@ -154,8 +154,6 @@ Question answering over internal knowledge bases
 
 RAG-based AI assistants
 
-
-```md
 ## Future Improvements
 - Evaluation metrics for retrieval quality
 - Support for hybrid search (keyword + vector)
