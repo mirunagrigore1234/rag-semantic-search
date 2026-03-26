@@ -6,11 +6,13 @@ This repository is structured as a **monorepo** and contains two main components
 - **rag-ingest** – document ingestion and vectorization pipeline
 - **rag-query** – semantic search and RAG-based querying over the vector database
 
+Designed to explore trade-offs between different chunking strategies and their impact on retrieval quality in RAG systems.
+
 ---
 
 ## Architecture Overview
 
-![Landing](Arhitecture_overview.png)
+![RAG Architecture](Arhitecture_overview.png)
 
 The system follows a standard RAG architecture:
 
@@ -22,12 +24,21 @@ The system follows a standard RAG architecture:
 
 ---
 
+## Highlights
+- Modular RAG architecture (ingestion + query separation)
+- Multiple chunking strategies (semantic, recursive, LLM-based)
+- Vector search with ChromaDB
+- CLI-based interaction
+- Designed with production-like structure
+
 ## Repository Structure
 
+```md
+```text
 RAG/
-├── rag-ingest/ # Document ingestion & vectorization pipeline
-├── rag-query/ # Semantic search & RAG query engine
-├── rag-setup-docs/ # Additional documentation
+├── rag-ingest/        # Document ingestion & vectorization pipeline
+├── rag-query/         # Semantic search & RAG query engine
+├── rag-setup-docs/    # Additional documentation
 ├── README.md
 
 
@@ -87,8 +98,10 @@ Provides semantic search and Retrieval-Augmented Generation over the vector data
 
 ## Setup & Installation
 
+```bash
 git clone https://github.com/your-username/rag-semantic-search.git
 cd RAG
+
 Each module (rag-ingest, rag-query) is self-contained and uses Pipenv for dependency management.
 
 Install dependencies separately for each module:
@@ -97,9 +110,9 @@ cd rag-ingest
 pipenv install
 
 cd ../rag-query
-pipenv install`
+pipenv install
 
-## Eninronment configuration
+## Environment configuration
 Each module requires a .env file (not committed to GitHub).
 Use the provided .env.example files as a template.
 
@@ -110,14 +123,20 @@ OPENAI_MODEL_NAME=gpt-4
 
 CHROMA_PERSIST_DIRECTORY=./rag-data/vector_db
 CHROMA_COLLECTION_NAME=documents
-Usaage
-Run ingestion (rag-ingest)
+
+## Usage
+### Run ingestion (rag-ingest)
+```bash
 pipenv run python -m rag_ingest
-Run queries (rag-query)
+
+### Run queries (rag-query)
+```bash
 pipenv run python -m rag_query.cli query "What is the main topic of the documents?"
 pipenv run python -m rag_query.cli search "machine learning"
 
 ## Notes
+Running queries requires a valid OpenAI API key. 
+
 The rag-data directory (vector database and local data) is intentionally excluded from version control.
 
 This project focuses on clean architecture, modularity, and best practices for building scalable RAG systems.
@@ -132,6 +151,13 @@ Semantic document search
 Question answering over internal knowledge bases
 
 RAG-based AI assistants
+
+
+```md
+## Future Improvements
+- Evaluation metrics for retrieval quality
+- Support for hybrid search (keyword + vector)
+- Web interface for querying
 
 Experimentation with chunking and retrieval strategies
 
