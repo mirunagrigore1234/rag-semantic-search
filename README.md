@@ -140,13 +140,6 @@ pipenv run python -m rag_query.cli query "What is the main topic of the document
 pipenv run python -m rag_query.cli search "machine learning"
 ```
 
-## Notes
-- Running queries requires a valid OpenAI API key. 
-- The rag-data directory (vector database and local data) is intentionally excluded from version control.
-- This project focuses on clean architecture, modularity, and best practices for building scalable RAG systems.
-- Designed as a learning and portfolio project with production-oriented structure.
-- This project was developed as part of an internship and is intended for learning and experimentation purposes.
-
 ## Use Cases
 - Semantic document search
 - Question answering over internal knowledge bases
@@ -157,4 +150,11 @@ pipenv run python -m rag_query.cli search "machine learning"
 - Support for hybrid search (keyword + vector)
 - Web interface for querying
 Experimentation with chunking and retrieval strategies
+
+## Notes
+- Running queries requires a valid OpenAI API key. 
+- The rag-data directory (vector database and local data) is intentionally excluded from version control.
+- This project focuses on clean architecture, modularity, and best practices for building scalable RAG systems.
+- Designed as a learning and portfolio project with production-oriented structure.
+- This project was developed as part of an internship and is intended for learning and experimentation purposes.
 
